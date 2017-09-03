@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GEApkaSprzetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="login" Type="nvarchar(max)" />
+          <Property Name="imie" Type="varchar" MaxLength="50" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="50" />
+          <Property Name="firma" Type="varchar" MaxLength="50" />
+          <Property Name="adres" Type="varchar" MaxLength="50" />
+          <Property Name="miasto" Type="varchar" MaxLength="50" />
+          <Property Name="kraj" Type="varchar" MaxLength="50" />
+          <Property Name="telefon" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="segment" Type="nvarchar(max)" />
+          <Property Name="stanowisko" Type="nvarchar(max)" />
+          <Property Name="ostatnia_modifykacja" Type="datetime" />
+          <Property Name="segment2" Type="nvarchar(max)" />
+          <Property Name="iloscDniBezlogowania" Type="int" />
+          <Property Name="pierwszyLogin" Type="varchar" MaxLength="10" />
+          <Property Name="jezyk" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Historia">
+          <Key>
+            <PropertyRef Name="Id_h" />
+          </Key>
+          <Property Name="Id_h" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="rodzajSprzetu" Type="varchar" MaxLength="50" />
+          <Property Name="marka" Type="varchar" MaxLength="50" />
+          <Property Name="nrPUK" Type="varchar" MaxLength="50" />
+          <Property Name="nr_tel" Type="varchar" MaxLength="50" />
+          <Property Name="procentZuzycia" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="serviceTag" Type="varchar" MaxLength="50" />
+          <Property Name="serialNumber" Type="varchar" MaxLength="50" />
+          <Property Name="numerPin" Type="varchar" MaxLength="50" />
+          <Property Name="nrTuszu" Type="varchar" MaxLength="50" />
+          <Property Name="id_user" Type="nvarchar" MaxLength="128" />
+          <Property Name="pojemnosc" Type="varchar" MaxLength="50" />
+          <Property Name="rodzaj" Type="varchar" MaxLength="50" />
+          <Property Name="przyjecie" Type="varchar" MaxLength="20" />
+          <Property Name="zwrot" Type="varchar" MaxLength="20" />
+          <Property Name="moc" Type="varchar" MaxLength="50" />
+          <Property Name="numerRejestracyjny" Type="varchar" MaxLength="50" />
+          <Property Name="numerVin" Type="varchar" MaxLength="50" />
+          <Property Name="opony" Type="varchar" MaxLength="50" />
+          <Property Name="ubezpieczenie" Type="varchar" MaxLength="50" />
+          <Property Name="przeglad" Type="varchar" MaxLength="50" />
+          <Property Name="przebieg" Type="varchar" MaxLength="50" />
+          <Property Name="powodZwrotu" Type="varchar" MaxLength="500" />
+          <Property Name="torba" Type="bit" />
+          <Property Name="zasilacz" Type="bit" />
+          <Property Name="mysz" Type="bit" />
+          <Property Name="pamiec_usb" Type="bit" />
+          <Property Name="modem_iplus" Type="bit" />
+          <Property Name="bluetooth" Type="bit" />
+          <Property Name="wifi" Type="bit" />
+          <Property Name="naped_optyczny" Type="bit" />
+          <Property Name="sluchawki" Type="bit" />
+          <Property Name="dysk_przenosny" Type="bit" />
+          <Property Name="drukarka_przenosna" Type="bit" />
+          <Property Name="nagrywarka_przenosna" Type="bit" />
+          <Property Name="samochod_sprawny" Type="bit" />
+          <Property Name="zestaw_glosnomowiacy" Type="bit" />
+          <Property Name="radio" Type="bit" />
+          <Property Name="apteczka" Type="bit" />
+          <Property Name="trojkat" Type="bit" />
+          <Property Name="gasnica" Type="bit" />
+          <Property Name="opony_zimowe" Type="bit" />
+          <Property Name="opony_letnie" Type="bit" />
+          <Property Name="kolo_zapasowe" Type="bit" />
+          <Property Name="ksiazka_serwisowa" Type="bit" />
+          <Property Name="karta_pojazdu" Type="bit" />
+          <Property Name="dowod_rejestracyjny" Type="bit" />
+          <Property Name="karta_paliwowa" Type="bit" />
+        </EntityType>
+        <EntityType Name="Segment2">
+          <Key>
+            <PropertyRef Name="id_s2" />
+          </Key>
+          <Property Name="id_s2" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Segmenty">
+          <Key>
+            <PropertyRef Name="id_s" />
+          </Key>
+          <Property Name="id_s" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SprzetUzytkownika">
+          <Key>
+            <PropertyRef Name="Id_ua" />
+          </Key>
+          <Property Name="Id_ua" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="rodzajSprzetu" Type="varchar" MaxLength="50" />
+          <Property Name="marka" Type="varchar" MaxLength="50" />
+          <Property Name="nrPUK" Type="varchar" MaxLength="50" />
+          <Property Name="nr_tel" Type="varchar" MaxLength="50" />
+          <Property Name="procentZuzycia" Type="varchar" MaxLength="50" />
+          <Property Name="model" Type="varchar" MaxLength="50" />
+          <Property Name="serviceTag" Type="varchar" MaxLength="50" />
+          <Property Name="serialNumber" Type="varchar" MaxLength="50" />
+          <Property Name="numerPin" Type="varchar" MaxLength="50" />
+          <Property Name="nrTuszu" Type="varchar" MaxLength="50" />
+          <Property Name="id_user" Type="nvarchar" MaxLength="128" />
+          <Property Name="pojemnosc" Type="varchar" MaxLength="50" />
+          <Property Name="rodzaj" Type="varchar" MaxLength="50" />
+          <Property Name="przyjecie" Type="varchar" MaxLength="20" />
+          <Property Name="zwrot" Type="varchar" MaxLength="20" />
+          <Property Name="moc" Type="varchar" MaxLength="50" />
+          <Property Name="numerRejestracyjny" Type="varchar" MaxLength="50" />
+          <Property Name="numerVin" Type="varchar" MaxLength="50" />
+          <Property Name="opony" Type="varchar" MaxLength="50" />
+          <Property Name="ubezpieczenie" Type="varchar" MaxLength="50" />
+          <Property Name="przeglad" Type="varchar" MaxLength="50" />
+          <Property Name="przebieg" Type="varchar" MaxLength="50" />
+          <Property Name="zwracany" Type="varchar" MaxLength="3" />
+          <Property Name="torba" Type="bit" />
+          <Property Name="zasilacz" Type="bit" />
+          <Property Name="mysz" Type="bit" />
+          <Property Name="pamiec_usb" Type="bit" />
+          <Property Name="modem_iplus" Type="bit" />
+          <Property Name="bluetooth" Type="bit" />
+          <Property Name="wifi" Type="bit" />
+          <Property Name="naped_optyczny" Type="bit" />
+          <Property Name="sluchawki" Type="bit" />
+          <Property Name="dysk_przenosny" Type="bit" />
+          <Property Name="drukarka_przenosna" Type="bit" />
+          <Property Name="nagrywarka_przenosna" Type="bit" />
+          <Property Name="samochod_sprawny" Type="bit" />
+          <Property Name="zestaw_glosnomowiacy" Type="bit" />
+          <Property Name="radio" Type="bit" />
+          <Property Name="apteczka" Type="bit" />
+          <Property Name="trojkat" Type="bit" />
+          <Property Name="gasnica" Type="bit" />
+          <Property Name="opony_zimowe" Type="bit" />
+          <Property Name="opony_letnie" Type="bit" />
+          <Property Name="kolo_zapasowe" Type="bit" />
+          <Property Name="ksiazka_serwisowa" Type="bit" />
+          <Property Name="karta_pojazdu" Type="bit" />
+          <Property Name="dowod_rejestracyjny" Type="bit" />
+          <Property Name="karta_paliwowa" Type="bit" />
+        </EntityType>
+        <Association Name="FKUserToUser_additional">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SprzetUzytkownika" Type="Self.SprzetUzytkownika" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SprzetUzytkownika">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserToHistoria">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Historia" Type="Self.Historia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Historia">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GEApkaSprzetModelStoreContainer">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historia" EntityType="Self.Historia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Segment2" EntityType="Self.Segment2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Segmenty" EntityType="Self.Segmenty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SprzetUzytkownika" EntityType="Self.SprzetUzytkownika" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FKUserToUser_additional" Association="Self.FKUserToUser_additional">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SprzetUzytkownika" EntitySet="SprzetUzytkownika" />
+          </AssociationSet>
+          <AssociationSet Name="UserToHistoria" Association="Self.UserToHistoria">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Historia" EntitySet="Historia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GEApkaSprzetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="firma" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="miasto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="kraj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="segment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="stanowisko" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ostatnia_modifykacja" Type="DateTime" Precision="3" />
+          <Property Name="segment2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SprzetUzytkownika" Relationship="Self.FKUserToUser_additional" FromRole="AspNetUsers" ToRole="SprzetUzytkownika" />
+          <NavigationProperty Name="Historia" Relationship="Self.UserToHistoria" FromRole="AspNetUsers" ToRole="Historia" />
+          <Property Name="iloscDniBezlogowania" Type="Int32" />
+          <Property Name="pierwszyLogin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="jezyk" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Historia">
+          <Key>
+            <PropertyRef Name="Id_h" />
+          </Key>
+          <Property Name="Id_h" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rodzajSprzetu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nrPUK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nr_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="procentZuzycia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="serviceTag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="serialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerPin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nrTuszu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_user" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="pojemnosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przyjecie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="zwrot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="moc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerRejestracyjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerVin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opony" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ubezpieczenie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przeglad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przebieg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="powodZwrotu" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.UserToHistoria" FromRole="Historia" ToRole="AspNetUsers" />
+          <Property Name="torba" Type="Boolean" />
+          <Property Name="zasilacz" Type="Boolean" />
+          <Property Name="mysz" Type="Boolean" />
+          <Property Name="pamiec_usb" Type="Boolean" />
+          <Property Name="modem_iplus" Type="Boolean" />
+          <Property Name="bluetooth" Type="Boolean" />
+          <Property Name="wifi" Type="Boolean" />
+          <Property Name="naped_optyczny" Type="Boolean" />
+          <Property Name="sluchawki" Type="Boolean" />
+          <Property Name="dysk_przenosny" Type="Boolean" />
+          <Property Name="drukarka_przenosna" Type="Boolean" />
+          <Property Name="nagrywarka_przenosna" Type="Boolean" />
+          <Property Name="samochod_sprawny" Type="Boolean" />
+          <Property Name="zestaw_glosnomowiacy" Type="Boolean" />
+          <Property Name="radio" Type="Boolean" />
+          <Property Name="apteczka" Type="Boolean" />
+          <Property Name="trojkat" Type="Boolean" />
+          <Property Name="gasnica" Type="Boolean" />
+          <Property Name="opony_zimowe" Type="Boolean" />
+          <Property Name="opony_letnie" Type="Boolean" />
+          <Property Name="kolo_zapasowe" Type="Boolean" />
+          <Property Name="ksiazka_serwisowa" Type="Boolean" />
+          <Property Name="karta_pojazdu" Type="Boolean" />
+          <Property Name="dowod_rejestracyjny" Type="Boolean" />
+          <Property Name="karta_paliwowa" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="SprzetUzytkownika">
+          <Key>
+            <PropertyRef Name="Id_ua" />
+          </Key>
+          <Property Name="Id_ua" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rodzajSprzetu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="marka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nrPUK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nr_tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="procentZuzycia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="serviceTag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="serialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerPin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nrTuszu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_user" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="pojemnosc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rodzaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przyjecie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="zwrot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="moc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerRejestracyjny" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="numerVin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="opony" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ubezpieczenie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przeglad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="przebieg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FKUserToUser_additional" FromRole="SprzetUzytkownika" ToRole="AspNetUsers" />
+          <Property Name="zwracany" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="torba" Type="Boolean" />
+          <Property Name="zasilacz" Type="Boolean" />
+          <Property Name="mysz" Type="Boolean" />
+          <Property Name="pamiec_usb" Type="Boolean" />
+          <Property Name="modem_iplus" Type="Boolean" />
+          <Property Name="bluetooth" Type="Boolean" />
+          <Property Name="wifi" Type="Boolean" />
+          <Property Name="naped_optyczny" Type="Boolean" />
+          <Property Name="sluchawki" Type="Boolean" />
+          <Property Name="dysk_przenosny" Type="Boolean" />
+          <Property Name="drukarka_przenosna" Type="Boolean" />
+          <Property Name="nagrywarka_przenosna" Type="Boolean" />
+          <Property Name="samochod_sprawny" Type="Boolean" />
+          <Property Name="zestaw_glosnomowiacy" Type="Boolean" />
+          <Property Name="radio" Type="Boolean" />
+          <Property Name="apteczka" Type="Boolean" />
+          <Property Name="trojkat" Type="Boolean" />
+          <Property Name="gasnica" Type="Boolean" />
+          <Property Name="opony_zimowe" Type="Boolean" />
+          <Property Name="opony_letnie" Type="Boolean" />
+          <Property Name="kolo_zapasowe" Type="Boolean" />
+          <Property Name="ksiazka_serwisowa" Type="Boolean" />
+          <Property Name="karta_pojazdu" Type="Boolean" />
+          <Property Name="dowod_rejestracyjny" Type="Boolean" />
+          <Property Name="karta_paliwowa" Type="Boolean" />
+        </EntityType>
+        <Association Name="FKUserToUser_additional">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SprzetUzytkownika" Type="Self.SprzetUzytkownika" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SprzetUzytkownika">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserToHistoria">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="Historia" Type="Self.Historia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Historia">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Historia" EntityType="Self.Historia" />
+          <EntitySet Name="SprzetUzytkownika" EntityType="Self.SprzetUzytkownika" />
+          <AssociationSet Name="FKUserToUser_additional" Association="Self.FKUserToUser_additional">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SprzetUzytkownika" EntitySet="SprzetUzytkownika" />
+          </AssociationSet>
+          <AssociationSet Name="UserToHistoria" Association="Self.UserToHistoria">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Historia" EntitySet="Historia" />
+          </AssociationSet>
+          <EntitySet Name="Segment2" EntityType="GEApkaSprzetModel.Segment2" />
+          <EntitySet Name="Segmenty" EntityType="GEApkaSprzetModel.Segmenty" />
+        </EntityContainer>
+        <EntityType Name="Segment2">
+          <Key>
+            <PropertyRef Name="id_s2" />
+          </Key>
+          <Property Name="id_s2" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="nazwa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Segmenty">
+          <Key>
+            <PropertyRef Name="id_s" />
+          </Key>
+          <Property Name="id_s" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GEApkaSprzetModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="GEApkaSprzetModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="jezyk" ColumnName="jezyk" />
+                <ScalarProperty Name="pierwszyLogin" ColumnName="pierwszyLogin" />
+                <ScalarProperty Name="iloscDniBezlogowania" ColumnName="iloscDniBezlogowania" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="firma" ColumnName="firma" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="miasto" ColumnName="miasto" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="segment" ColumnName="segment" />
+                <ScalarProperty Name="stanowisko" ColumnName="stanowisko" />
+                <ScalarProperty Name="ostatnia_modifykacja" ColumnName="ostatnia_modifykacja" />
+                <ScalarProperty Name="segment2" ColumnName="segment2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historia">
+            <EntityTypeMapping TypeName="GEApkaSprzetModel.Historia">
+              <MappingFragment StoreEntitySet="Historia">
+                <ScalarProperty Name="karta_paliwowa" ColumnName="karta_paliwowa" />
+                <ScalarProperty Name="dowod_rejestracyjny" ColumnName="dowod_rejestracyjny" />
+                <ScalarProperty Name="karta_pojazdu" ColumnName="karta_pojazdu" />
+                <ScalarProperty Name="ksiazka_serwisowa" ColumnName="ksiazka_serwisowa" />
+                <ScalarProperty Name="kolo_zapasowe" ColumnName="kolo_zapasowe" />
+                <ScalarProperty Name="opony_letnie" ColumnName="opony_letnie" />
+                <ScalarProperty Name="opony_zimowe" ColumnName="opony_zimowe" />
+                <ScalarProperty Name="gasnica" ColumnName="gasnica" />
+                <ScalarProperty Name="trojkat" ColumnName="trojkat" />
+                <ScalarProperty Name="apteczka" ColumnName="apteczka" />
+                <ScalarProperty Name="radio" ColumnName="radio" />
+                <ScalarProperty Name="zestaw_glosnomowiacy" ColumnName="zestaw_glosnomowiacy" />
+                <ScalarProperty Name="samochod_sprawny" ColumnName="samochod_sprawny" />
+                <ScalarProperty Name="nagrywarka_przenosna" ColumnName="nagrywarka_przenosna" />
+                <ScalarProperty Name="drukarka_przenosna" ColumnName="drukarka_przenosna" />
+                <ScalarProperty Name="dysk_przenosny" ColumnName="dysk_przenosny" />
+                <ScalarProperty Name="sluchawki" ColumnName="sluchawki" />
+                <ScalarProperty Name="naped_optyczny" ColumnName="naped_optyczny" />
+                <ScalarProperty Name="wifi" ColumnName="wifi" />
+                <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+                <ScalarProperty Name="modem_iplus" ColumnName="modem_iplus" />
+                <ScalarProperty Name="pamiec_usb" ColumnName="pamiec_usb" />
+                <ScalarProperty Name="mysz" ColumnName="mysz" />
+                <ScalarProperty Name="zasilacz" ColumnName="zasilacz" />
+                <ScalarProperty Name="torba" ColumnName="torba" />
+                <ScalarProperty Name="Id_h" ColumnName="Id_h" />
+                <ScalarProperty Name="rodzajSprzetu" ColumnName="rodzajSprzetu" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="nrPUK" ColumnName="nrPUK" />
+                <ScalarProperty Name="nr_tel" ColumnName="nr_tel" />
+                <ScalarProperty Name="procentZuzycia" ColumnName="procentZuzycia" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serviceTag" ColumnName="serviceTag" />
+                <ScalarProperty Name="serialNumber" ColumnName="serialNumber" />
+                <ScalarProperty Name="numerPin" ColumnName="numerPin" />
+                <ScalarProperty Name="nrTuszu" ColumnName="nrTuszu" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="pojemnosc" ColumnName="pojemnosc" />
+                <ScalarProperty Name="rodzaj" ColumnName="rodzaj" />
+                <ScalarProperty Name="przyjecie" ColumnName="przyjecie" />
+                <ScalarProperty Name="zwrot" ColumnName="zwrot" />
+                <ScalarProperty Name="moc" ColumnName="moc" />
+                <ScalarProperty Name="numerRejestracyjny" ColumnName="numerRejestracyjny" />
+                <ScalarProperty Name="numerVin" ColumnName="numerVin" />
+                <ScalarProperty Name="opony" ColumnName="opony" />
+                <ScalarProperty Name="ubezpieczenie" ColumnName="ubezpieczenie" />
+                <ScalarProperty Name="przeglad" ColumnName="przeglad" />
+                <ScalarProperty Name="przebieg" ColumnName="przebieg" />
+                <ScalarProperty Name="powodZwrotu" ColumnName="powodZwrotu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SprzetUzytkownika">
+            <EntityTypeMapping TypeName="GEApkaSprzetModel.SprzetUzytkownika">
+              <MappingFragment StoreEntitySet="SprzetUzytkownika">
+                <ScalarProperty Name="karta_paliwowa" ColumnName="karta_paliwowa" />
+                <ScalarProperty Name="dowod_rejestracyjny" ColumnName="dowod_rejestracyjny" />
+                <ScalarProperty Name="karta_pojazdu" ColumnName="karta_pojazdu" />
+                <ScalarProperty Name="ksiazka_serwisowa" ColumnName="ksiazka_serwisowa" />
+                <ScalarProperty Name="kolo_zapasowe" ColumnName="kolo_zapasowe" />
+                <ScalarProperty Name="opony_letnie" ColumnName="opony_letnie" />
+                <ScalarProperty Name="opony_zimowe" ColumnName="opony_zimowe" />
+                <ScalarProperty Name="gasnica" ColumnName="gasnica" />
+                <ScalarProperty Name="trojkat" ColumnName="trojkat" />
+                <ScalarProperty Name="apteczka" ColumnName="apteczka" />
+                <ScalarProperty Name="radio" ColumnName="radio" />
+                <ScalarProperty Name="zestaw_glosnomowiacy" ColumnName="zestaw_glosnomowiacy" />
+                <ScalarProperty Name="samochod_sprawny" ColumnName="samochod_sprawny" />
+                <ScalarProperty Name="nagrywarka_przenosna" ColumnName="nagrywarka_przenosna" />
+                <ScalarProperty Name="drukarka_przenosna" ColumnName="drukarka_przenosna" />
+                <ScalarProperty Name="dysk_przenosny" ColumnName="dysk_przenosny" />
+                <ScalarProperty Name="sluchawki" ColumnName="sluchawki" />
+                <ScalarProperty Name="naped_optyczny" ColumnName="naped_optyczny" />
+                <ScalarProperty Name="wifi" ColumnName="wifi" />
+                <ScalarProperty Name="bluetooth" ColumnName="bluetooth" />
+                <ScalarProperty Name="modem_iplus" ColumnName="modem_iplus" />
+                <ScalarProperty Name="pamiec_usb" ColumnName="pamiec_usb" />
+                <ScalarProperty Name="mysz" ColumnName="mysz" />
+                <ScalarProperty Name="zasilacz" ColumnName="zasilacz" />
+                <ScalarProperty Name="torba" ColumnName="torba" />
+                <ScalarProperty Name="zwracany" ColumnName="zwracany" />
+                <ScalarProperty Name="Id_ua" ColumnName="Id_ua" />
+                <ScalarProperty Name="rodzajSprzetu" ColumnName="rodzajSprzetu" />
+                <ScalarProperty Name="marka" ColumnName="marka" />
+                <ScalarProperty Name="nrPUK" ColumnName="nrPUK" />
+                <ScalarProperty Name="nr_tel" ColumnName="nr_tel" />
+                <ScalarProperty Name="procentZuzycia" ColumnName="procentZuzycia" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="serviceTag" ColumnName="serviceTag" />
+                <ScalarProperty Name="serialNumber" ColumnName="serialNumber" />
+                <ScalarProperty Name="numerPin" ColumnName="numerPin" />
+                <ScalarProperty Name="nrTuszu" ColumnName="nrTuszu" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="pojemnosc" ColumnName="pojemnosc" />
+                <ScalarProperty Name="rodzaj" ColumnName="rodzaj" />
+                <ScalarProperty Name="przyjecie" ColumnName="przyjecie" />
+                <ScalarProperty Name="zwrot" ColumnName="zwrot" />
+                <ScalarProperty Name="moc" ColumnName="moc" />
+                <ScalarProperty Name="numerRejestracyjny" ColumnName="numerRejestracyjny" />
+                <ScalarProperty Name="numerVin" ColumnName="numerVin" />
+                <ScalarProperty Name="opony" ColumnName="opony" />
+                <ScalarProperty Name="ubezpieczenie" ColumnName="ubezpieczenie" />
+                <ScalarProperty Name="przeglad" ColumnName="przeglad" />
+                <ScalarProperty Name="przebieg" ColumnName="przebieg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segment2">
+            <EntityTypeMapping TypeName="GEApkaSprzetModel.Segment2">
+              <MappingFragment StoreEntitySet="Segment2">
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="id_s2" ColumnName="id_s2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Segmenty">
+            <EntityTypeMapping TypeName="GEApkaSprzetModel.Segmenty">
+              <MappingFragment StoreEntitySet="Segmenty">
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="id_s" ColumnName="id_s" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

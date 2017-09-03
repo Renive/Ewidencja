@@ -1,0 +1,159 @@
+﻿@model IEnumerable<ThunderITforGEA.Models.SprzetUzytkownika>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rodzajSprzetu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nrPUK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nr_tel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.procentZuzycia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.serviceTag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.serialNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numerPin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nrTuszu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pojemnosc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rodzaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.przyjecie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zwrot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.moc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numerRejestracyjny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numerVin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opony)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ubezpieczenie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.przeglad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUsers.PasswordHash)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rodzajSprzetu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nrPUK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nr_tel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.procentZuzycia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.serviceTag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.serialNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numerPin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nrTuszu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pojemnosc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rodzaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.przyjecie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zwrot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.moc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numerRejestracyjny)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numerVin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.opony)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ubezpieczenie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.przeglad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.przebieg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.PasswordHash)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id_ua }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id_ua }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id_ua })
+        </td>
+    </tr>
+}
+
+</table>

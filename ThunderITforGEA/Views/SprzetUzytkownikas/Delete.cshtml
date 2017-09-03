@@ -1,0 +1,211 @@
+﻿@model ThunderITforGEA.Models.SprzetUzytkownika
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<div>
+    <h4>Zwrot sprzętu, dane :</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rodzajSprzetu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rodzajSprzetu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrPUK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrPUK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.procentZuzycia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.procentZuzycia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerPin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerPin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrTuszu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrTuszu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pojemnosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pojemnosc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rodzaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rodzaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przyjecie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przyjecie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zwrot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zwrot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerRejestracyjny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerRejestracyjny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerVin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerVin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opony)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opony)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ubezpieczenie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ubezpieczenie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przeglad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przeglad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przebieg)
+        </dd>
+
+      
+
+    </dl>
+   
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+    <label for="powod">Podaj powód zwrotu: </label>
+          @Html.TextBox("powod")
+    
+        <br />
+        <div class="form-actions no-color">
+            <input type="submit" value="Zwróć" disabled="disabled" class="btn btn-default" id="zwrocButton"/> |
+            @Html.ActionLink("Powrót do listy", "Index")
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(document).ready(function () {
+        $("#powod").on("keypress", function () {
+            if ($(this).val() != "") {
+                $("#zwrocButton").prop("disabled", false);
+            } else {
+                $("#zwrocButton").prop("disabled", "disabled");
+            }
+        });
+    });
+</script>
+
+}

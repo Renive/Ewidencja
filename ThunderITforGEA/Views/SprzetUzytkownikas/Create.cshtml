@@ -1,0 +1,799 @@
+﻿@model ThunderITforGEA.Models.SprzetUzytkownika
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Przypisz sobie sprzęt</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
+
+        <div class="form-group">
+           
+
+            <div class="col-md-10">
+                @Html.DropDownList("Wybierz rodzaj", new List<SelectListItem> {
+                new SelectListItem{Text = "Laptop", Value = "1"},
+                new SelectListItem{Text = "Telefon", Value = "2"},
+                new SelectListItem{Text = "Telefon 2", Value = "3"},
+                new SelectListItem{Text = "Modem GSM", Value = "4"},
+                new SelectListItem{Text = "Modem GSM 2", Value = "5"},
+                new SelectListItem{Text = "Dysk przenośny", Value = "6"},
+                new SelectListItem{Text = "Dysk przenośny 2", Value = "7"},
+                new SelectListItem{Text = "Drukarka", Value = "8"},
+                new SelectListItem{Text = "Drukarka 2", Value = "9"},
+                new SelectListItem{Text = "Samochód", Value = "10"},
+                 new SelectListItem{Text = "Inne", Value = "11"},
+                  new SelectListItem{Text = "Inne 2", Value = "12"},
+                   new SelectListItem{Text = "Inne 3", Value = "13"},
+                    new SelectListItem{Text = "Inne 4", Value = "14"},
+                     new SelectListItem{Text = "Inne 5", Value = "15"},
+                      new SelectListItem{Text = "Inne 6", Value = "16"},
+            }, new { @id = "SelectType" ,@class="form-control" })
+            </div>
+
+        </div>
+
+        <div class="form-group" id="dataPrzyjecia" style="display:block;">
+            @Html.LabelFor(model => model.przyjecie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przyjecie, new { htmlAttributes = new { @class = "form-control" , id="cokolwiek", type="text", placeholder="dd/mm/yyyy"} })
+                @Html.ValidationMessageFor(model => model.przyjecie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="marka">
+            @Html.LabelFor(model => model.marka, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.marka, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.marka, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="model">
+            @Html.LabelFor(model => model.model, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+
+        <div class="form-group" style="display:none;" id="nrtel">
+            @Html.LabelFor(model => model.nr_tel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nr_tel, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nr_tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="procent">
+            @Html.LabelFor(model => model.procentZuzycia, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.procentZuzycia, new { htmlAttributes = new { @class = "form-control"  } })
+                @Html.ValidationMessageFor(model => model.procentZuzycia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    
+
+        <div class="form-group" style="display:none;" id="servicetag">
+            @Html.LabelFor(model => model.serviceTag, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.serviceTag, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.serviceTag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="serialnumber">
+            @Html.LabelFor(model => model.serialNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.serialNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.serialNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="pin">
+            @Html.LabelFor(model => model.numerPin, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerPin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.numerPin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="puk">
+            @Html.LabelFor(model => model.nrPUK, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nrPUK, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nrPUK, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="tusz">
+            @Html.LabelFor(model => model.nrTuszu, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nrTuszu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nrTuszu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="pojemnosc">
+            @Html.LabelFor(model => model.pojemnosc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pojemnosc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pojemnosc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="rodzaj">
+            @Html.LabelFor(model => model.rodzaj, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rodzaj, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.rodzaj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="przyjecie">
+            @Html.LabelFor(model => model.przyjecie, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przyjecie, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.przyjecie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="zwrot">
+            @Html.LabelFor(model => model.zwrot, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.zwrot, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.zwrot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="moc">
+            @Html.LabelFor(model => model.moc, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.moc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.moc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="rejestracyjny">
+            @Html.LabelFor(model => model.numerRejestracyjny, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerRejestracyjny, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.numerRejestracyjny, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="vin">
+            @Html.LabelFor(model => model.numerVin, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerVin, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.numerVin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="opony">
+            @Html.LabelFor(model => model.opony, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.opony, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.opony, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="ubezpieczenie">
+            @Html.LabelFor(model => model.ubezpieczenie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ubezpieczenie, new { htmlAttributes = new { @class = "form-control", id = "ubezpieczenieData", placeholder = "dd/mm/yyyy" } })
+                @Html.ValidationMessageFor(model => model.ubezpieczenie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="przeglad">
+            @Html.LabelFor(model => model.przeglad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przeglad, new { htmlAttributes = new { @class = "form-control", id = "przegladData", placeholder = "dd/mm/yyyy" } })
+                @Html.ValidationMessageFor(model => model.przeglad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="przebieg">
+            @Html.LabelFor(model => model.przebieg, htmlAttributes: new { @class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przebieg, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.przebieg, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group" id="torba" style="display:none;">
+            @Html.LabelFor(model => model.torba, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.torba)
+                    @Html.ValidationMessageFor(model => model.torba, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="zasilacz">
+            @Html.LabelFor(model => model.zasilacz, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.zasilacz)
+                    @Html.ValidationMessageFor(model => model.zasilacz, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="mysz">
+            @Html.LabelFor(model => model.mysz, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.mysz)
+                    @Html.ValidationMessageFor(model => model.mysz, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="pamiec_usb">
+            @Html.LabelFor(model => model.pamiec_usb, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.pamiec_usb)
+                    @Html.ValidationMessageFor(model => model.pamiec_usb, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="modem_iplus">
+            @Html.LabelFor(model => model.modem_iplus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.modem_iplus)
+                    @Html.ValidationMessageFor(model => model.modem_iplus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="bluetooth">
+            @Html.LabelFor(model => model.bluetooth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.bluetooth)
+                    @Html.ValidationMessageFor(model => model.bluetooth, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="wifi">
+            @Html.LabelFor(model => model.wifi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.wifi)
+                    @Html.ValidationMessageFor(model => model.wifi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="naped_optyczny">
+            @Html.LabelFor(model => model.naped_optyczny, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.naped_optyczny)
+                    @Html.ValidationMessageFor(model => model.naped_optyczny, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="sluchawki">
+            @Html.LabelFor(model => model.sluchawki, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.sluchawki)
+                    @Html.ValidationMessageFor(model => model.sluchawki, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="dysk_przenosny">
+            @Html.LabelFor(model => model.dysk_przenosny, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.dysk_przenosny)
+                    @Html.ValidationMessageFor(model => model.dysk_przenosny, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="drukarka_przenosna">
+            @Html.LabelFor(model => model.drukarka_przenosna, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.drukarka_przenosna)
+                    @Html.ValidationMessageFor(model => model.drukarka_przenosna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="nagrywarka_przenosna">
+            @Html.LabelFor(model => model.nagrywarka_przenosna, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.nagrywarka_przenosna)
+                    @Html.ValidationMessageFor(model => model.nagrywarka_przenosna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="samochod_sprawny">
+            @Html.LabelFor(model => model.samochod_sprawny, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.samochod_sprawny)
+                    @Html.ValidationMessageFor(model => model.samochod_sprawny, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="zestaw_glosnomowiacy">
+            @Html.LabelFor(model => model.zestaw_glosnomowiacy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.zestaw_glosnomowiacy)
+                    @Html.ValidationMessageFor(model => model.zestaw_glosnomowiacy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="radio">
+            @Html.LabelFor(model => model.radio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.radio)
+                    @Html.ValidationMessageFor(model => model.radio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="apteczka">
+            @Html.LabelFor(model => model.apteczka, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.apteczka)
+                    @Html.ValidationMessageFor(model => model.apteczka, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="trojkat">
+            @Html.LabelFor(model => model.trojkat, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.trojkat)
+                    @Html.ValidationMessageFor(model => model.trojkat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="gasnica">
+            @Html.LabelFor(model => model.gasnica, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.gasnica)
+                    @Html.ValidationMessageFor(model => model.gasnica, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="opony_zimowe">
+            @Html.LabelFor(model => model.opony_zimowe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.opony_zimowe)
+                    @Html.ValidationMessageFor(model => model.opony_zimowe, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="opony_letnie">
+            @Html.LabelFor(model => model.opony_letnie, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.opony_letnie)
+                    @Html.ValidationMessageFor(model => model.opony_letnie, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="kolo_zapasowe">
+            @Html.LabelFor(model => model.kolo_zapasowe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.kolo_zapasowe)
+                    @Html.ValidationMessageFor(model => model.kolo_zapasowe, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="ksiazka_serwisowa">
+            @Html.LabelFor(model => model.ksiazka_serwisowa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ksiazka_serwisowa)
+                    @Html.ValidationMessageFor(model => model.ksiazka_serwisowa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="karta_pojazdu">
+            @Html.LabelFor(model => model.karta_pojazdu, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.karta_pojazdu)
+                    @Html.ValidationMessageFor(model => model.karta_pojazdu, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="dowod_rejestracyjny">
+            @Html.LabelFor(model => model.dowod_rejestracyjny, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.dowod_rejestracyjny)
+                    @Html.ValidationMessageFor(model => model.dowod_rejestracyjny, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;" id="karta_paliwowa">
+            @Html.LabelFor(model => model.karta_paliwowa, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.karta_paliwowa)
+                    @Html.ValidationMessageFor(model => model.karta_paliwowa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    
+                @Html.EditorFor(model => model.rodzajSprzetu, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tRodzajSprzetu" } })
+               
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Zapisz" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Powrót do listy", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+@Styles.Render("~/Content/themes/base/css")
+@Scripts.Render("~/bundles/jqueryui")
+<script>
+    $(function () {
+        $("#cokolwiek").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#przegladData").datepicker({ dateFormat: 'dd-mm-yy' });
+        $("#ubezpieczenieData").datepicker({ dateFormat: 'dd-mm-yy' });
+    });
+   
+    $(function() {
+       // $('.datepicker').datepicker(); //Initialise any date pickers
+            $("#SelectType").on("change", function() {
+              
+                if (parseInt($("#SelectType").val()) == 1) {
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Laptop');                 
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#servicetag").show('slow');
+                    $("#torba").show('slow');
+                    $("#zasilacz").show('slow');
+                    $("#mysz").show('slow');
+                    $("#pamiec_usb").show('slow');
+                    $("#modem_iplus").show('slow');
+                    $("#bluetooth").show('slow');
+                    $("#wifi").show('slow');
+                    $("#naped_optyczny").show('slow');
+                    $("#sluchawki").show('slow');
+                    $("#dysk_przenosny").show('slow');
+                    $("#drukarka_przenosna").show('slow');
+                    $("#nagrywarka_przenosna").show('slow');
+                 
+                }
+                if (parseInt($("#SelectType").val()) == 2) {
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Telefon');
+
+
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#nrtel").show('slow');
+                    $("#pin").show('slow');
+                    $("#puk").show('slow');
+                   
+                }
+                if(parseInt($("#SelectType").val()) == 3){
+                   
+                    hideall();
+
+
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Telefon 2');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#nrtel").show('slow');
+                    $("#pin").show('slow');
+                  
+              
+            }
+                if(parseInt($("#SelectType").val()) == 4){
+                    hideall();
+
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Modem GSM');
+
+
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                   
+                    $("#nrtel").show('slow');
+                    $("#pin").show('slow');
+                    $("#puk").show('slow');
+                
+    }
+                if(parseInt($("#SelectType").val()) == 5){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Modem GSM 2');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                   
+                    $("#nrtel").show('slow');
+                    $("#pin").show('slow');
+                    $("#puk").show('slow');
+                    
+                }
+                if(parseInt($("#SelectType").val()) == 6){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Dysk przenośny');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#pojemnosc").show('slow');
+                    $("#procent").show('slow');
+                 
+
+                }
+                if(parseInt($("#SelectType").val()) == 7){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Dysk przenośny 2');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#pojemnosc").show('slow');
+                    $("#procent").show('slow');
+    }
+                if(parseInt($("#SelectType").val()) == 8){
+                 
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Drukarka');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#tusz").show('slow');
+                   
+                  
+
+    }
+                if(parseInt($("#SelectType").val()) == 9){
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Drukarka 2');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#tusz").show('slow');
+    }
+                if(parseInt($("#SelectType").val()) == 10){
+                   //samochod
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Samochód');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#pojemnosc").show('slow');
+                    $("#moc").show('slow');
+                    $("#rejestracyjny").show('slow');
+                    $("#vin").show('slow');
+                    $("#opony").show('slow');
+                    $("#ubezpieczenie").show('slow');
+                    $("#przeglad").show('slow');
+                    $("#przebieg").show('slow');
+                    $("#samochod_sprawny").show('slow');
+                    $("#zestaw_glosnomowiacy").show('slow');
+                    $("#radio").show('slow');
+                    $("#apteczka").show('slow');
+                    $("#trojkat").show('slow');
+                    $("#gasnica").show('slow');
+                    $("#opony_zimowe").show('slow');
+                    $("#opony_letnie").show('slow');
+                    $("#kolo_zapasowe").show('slow');
+                    $("#ksiazka_serwisowa").show('slow');
+                    $("#karta_pojazdu").show('slow');
+                    $("#dowod_rejestracyjny").show('slow');
+                    $("#karta_paliwowa").show('slow');
+
+    }
+                if(parseInt($("#SelectType").val()) == 11){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+                  
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 12){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 2');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+
+
+                    
+                   
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 13){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 3');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+
+
+
+
+                }
+                if(parseInt($("#SelectType").val()) == 14){
+                   
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 4');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+
+
+
+
+
+                }
+                if(parseInt($("#SelectType").val()) == 15){
+                    
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 5');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 16){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 6');
+                    $("#marka").show('slow');
+                    $("#model").show('slow');
+                    $("#serialnumber").show('slow');
+                    $("#rodzaj").show('slow');
+
+
+               
+                   
+
+
+
+    }
+            });
+            $("#SelectType").trigger("change");
+        });
+    
+    
+       function hideall(){
+        $("#pin").hide();
+        
+        $("#marka").hide();
+      
+        $("#model").hide();
+      
+        $("#servicetag").hide();
+       
+        $("#vin").hide();
+     
+       
+        $("#opony").hide();
+        $("#ubezpieczenie").hide();
+        $("#przebieg").hide();
+        $("#rejestracyjny").hide();
+        $("#moc").hide();
+        $("#przyjecie").hide();
+        $("#rodzaj").hide();
+        $("#pojemnosc").hide();
+        $("#tusz").hide();
+        $("#procent").hide();
+        $("#puk").hide();
+        $("#nrtel").hide();
+        $("#serialnumber").hide();
+        $("#przeglad").hide();
+        $("#samochod_sprawny").hide();
+        $("#zestaw_glosnomowiacy").hide();
+        $("#radio").hide();
+        $("#apteczka").hide();
+        $("#trojkat").hide();
+        $("#gasnica").hide();
+        $("#opony_zimowe").hide();
+        $("#opony_letnie").hide();
+        $("#kolo_zapasowe").hide();
+        $("#ksiazka_serwisowa").hide();
+        $("#karta_pojazdu").hide();
+        $("#dowod_rejestracyjny").hide();
+        $("#karta_paliwowa").hide();
+        $("#torba").hide();
+        $("#zasilacz").hide();
+        $("#mysz").hide();
+        $("#pamiec_usb").hide();
+        $("#modem_iplus").hide();
+        $("#bluetooth").hide();
+        $("#wifi").hide();
+        $("#naped_optyczny").hide();
+        $("#sluchawki").hide();
+        $("#dysk_przenosny").hide();
+        $("#drukarka_przenosna").hide();
+        $("#nagrywarka_przenosna").hide();
+    }
+    
+  
+</script> 
+    }
+   

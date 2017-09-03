@@ -1,0 +1,395 @@
+﻿@model ThunderITforGEA.Models.Historia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Szczegóły</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rodzajSprzetu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rodzajSprzetu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.marka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.marka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrPUK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrPUK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nr_tel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nr_tel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.procentZuzycia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.procentZuzycia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serviceTag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serviceTag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerPin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerPin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrTuszu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrTuszu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pojemnosc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pojemnosc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rodzaj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rodzaj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przyjecie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przyjecie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zwrot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zwrot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerRejestracyjny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerRejestracyjny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numerVin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numerVin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opony)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opony)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ubezpieczenie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ubezpieczenie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przeglad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przeglad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.przebieg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.przebieg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.powodZwrotu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.powodZwrotu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.torba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.torba)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zasilacz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zasilacz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mysz)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mysz)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pamiec_usb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pamiec_usb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modem_iplus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modem_iplus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bluetooth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bluetooth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.wifi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wifi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.naped_optyczny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.naped_optyczny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sluchawki)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sluchawki)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dysk_przenosny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dysk_przenosny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.drukarka_przenosna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.drukarka_przenosna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nagrywarka_przenosna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nagrywarka_przenosna)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.samochod_sprawny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.samochod_sprawny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.zestaw_glosnomowiacy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.zestaw_glosnomowiacy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.radio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.radio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apteczka)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apteczka)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trojkat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trojkat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gasnica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gasnica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opony_zimowe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opony_zimowe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.opony_letnie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.opony_letnie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kolo_zapasowe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kolo_zapasowe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ksiazka_serwisowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ksiazka_serwisowa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.karta_pojazdu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.karta_pojazdu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dowod_rejestracyjny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dowod_rejestracyjny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.karta_paliwowa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.karta_paliwowa)
+        </dd>
+
+      
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edycja", "Edit", new { id = Model.Id_h }) |
+    @Html.ActionLink("Powrót", "Index")
+</p>

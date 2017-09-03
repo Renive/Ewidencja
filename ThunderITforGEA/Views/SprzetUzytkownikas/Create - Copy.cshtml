@@ -1,0 +1,542 @@
+﻿@model ThunderITforGEA.Models.SprzetUzytkownika
+
+@{
+    ViewBag.Title = "Create";
+}
+<style>
+  
+
+    .form-group{
+      
+     margin-bottom:10px !important;
+       
+    }
+
+</style>
+<h2>Przypisz sobie sprzęt</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
+
+        <div class="form-group">
+          
+            <div class="col-md-10">
+                @Html.DropDownList("Wybierz rodzaj", new List<SelectListItem> {
+                new SelectListItem{Text = "Laptop", Value = "1"},
+                new SelectListItem{Text = "Telefon", Value = "2"},
+                new SelectListItem{Text = "Telefon 2", Value = "3"},
+                new SelectListItem{Text = "Modem GSM", Value = "4"},
+                new SelectListItem{Text = "Modem GSM 2", Value = "5"},
+                new SelectListItem{Text = "Dysk przenośny", Value = "6"},
+                new SelectListItem{Text = "Dysk przenośny 2", Value = "7"},
+                new SelectListItem{Text = "Drukarka", Value = "8"},
+                new SelectListItem{Text = "Drukarka 2", Value = "9"},
+                new SelectListItem{Text = "Samochód", Value = "10"},
+                 new SelectListItem{Text = "Inne", Value = "11"},
+                  new SelectListItem{Text = "Inne 2", Value = "12"},
+                   new SelectListItem{Text = "Inne 3", Value = "13"},
+                    new SelectListItem{Text = "Inne 4", Value = "14"},
+                     new SelectListItem{Text = "Inne 5", Value = "15"},
+                      new SelectListItem{Text = "Inne 6", Value = "16"},
+            }, new { @id = "SelectType" ,@class="form-control" })
+            </div>
+        </div>
+
+        <div class="form-group" >
+            @Html.LabelFor(model => model.marka, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;", id="lMarka" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.marka, new { htmlAttributes = new { @class = "form-control", style = "display:none;", id="tMarka"} })
+                @Html.ValidationMessageFor(model => model.marka, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.nrPUK, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lPUK" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nrPUK, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tPUK" } })
+                @Html.ValidationMessageFor(model => model.nrPUK, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="display:none;">
+            @Html.LabelFor(model => model.nr_tel, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lTel" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nr_tel, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tTel" } })
+                @Html.ValidationMessageFor(model => model.nr_tel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.procentZuzycia, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lProcent" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.procentZuzycia, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tProcent" } })
+                @Html.ValidationMessageFor(model => model.procentZuzycia, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.model, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lModel" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.model, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tModel" } })
+                @Html.ValidationMessageFor(model => model.model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.serviceTag, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lServiceTag" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.serviceTag, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tServiceTag" } })
+                @Html.ValidationMessageFor(model => model.serviceTag, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.serialNumber, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lSerialNumber" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.serialNumber, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tSerialNumber" } })
+                @Html.ValidationMessageFor(model => model.serialNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numerPin, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lPin" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerPin, new { htmlAttributes = new { @class = "form-control", style = "display:none;",id="tPin" } })
+                @Html.ValidationMessageFor(model => model.numerPin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nrTuszu, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lTusz" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nrTuszu, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tTusz"} })
+                @Html.ValidationMessageFor(model => model.nrTuszu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.pojemnosc, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;" ,id="lPojemnosc"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pojemnosc, new { htmlAttributes = new { @class = "form-control", style = "display:none;",id="tPojemnosc"} })
+                @Html.ValidationMessageFor(model => model.pojemnosc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rodzaj, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lRodzaj" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rodzaj, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tRodzaj"} })
+                @Html.ValidationMessageFor(model => model.rodzaj, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.przyjecie, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lPrzyjecie" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przyjecie, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tPrzyjecie"} })
+                @Html.ValidationMessageFor(model => model.przyjecie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.zwrot, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lZwrot" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.zwrot, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tZwrot"} })
+                @Html.ValidationMessageFor(model => model.zwrot, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.moc, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;" ,id="lMoc"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.moc, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tMoc"} })
+                @Html.ValidationMessageFor(model => model.moc, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numerRejestracyjny, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lRejestracyjny" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerRejestracyjny, new { htmlAttributes = new { @class = "form-control", style = "display:none;" , id="tRejestracyjny"} })
+                @Html.ValidationMessageFor(model => model.numerRejestracyjny, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.numerVin, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lVin" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.numerVin, new { htmlAttributes = new { @class = "form-control", style = "display:none;",id="tVin" } })
+                @Html.ValidationMessageFor(model => model.numerVin, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.opony, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;", id="lOpony"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.opony, new { htmlAttributes = new { @class = "form-control", style = "display:none;" ,id="tOpony"} })
+                @Html.ValidationMessageFor(model => model.opony, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ubezpieczenie, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "tUbez" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ubezpieczenie, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "lUbez" } })
+                @Html.ValidationMessageFor(model => model.ubezpieczenie, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.przeglad, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none;",id="lPrzeglad" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przeglad, new { htmlAttributes = new { @class = "form-control", style = "display:none;",id="tPrzeglad" } })
+                @Html.ValidationMessageFor(model => model.przeglad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.przebieg, htmlAttributes: new { @class = "control-label col-md-2", style = "display:none !important;", id = "lPrzebieg" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.przebieg, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;" ,id="tPrzebieg"} })
+                @Html.ValidationMessageFor(model => model.przebieg, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    
+                @Html.EditorFor(model => model.rodzajSprzetu, new { htmlAttributes = new { @class = "form-control", style = "display:none !important;", id = "tRodzajSprzetu" } })
+               
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Zapisz" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(function() {
+       
+            $("#SelectType").on("change", function() {
+              
+                if (parseInt($("#SelectType").val()) == 1) {
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Laptop');
+                  
+
+
+
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lServiceTag").show('slow');
+                    $("#tServiceTag").show('slow');
+                }
+                if (parseInt($("#SelectType").val()) == 2) {
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Telefon');
+
+
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTel").show('slow');
+                    $("#tTel").show('slow');
+                    $("#lPin").show('slow');
+                    $("#tPin").show('slow');
+                }
+                if(parseInt($("#SelectType").val()) == 3){
+                   
+                    hideall();
+
+
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Telefon 2');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTel").show('slow');
+                    $("#tTel").show('slow');
+                    $("#lPin").show('slow');
+                    $("#tPin").show('slow');
+              
+            }
+                if(parseInt($("#SelectType").val()) == 4){
+                    hideall();
+
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Modem GSM');
+
+
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTel").show('slow');
+                    $("#tTel").show('slow');
+                    $("#lPin").show('slow');
+                    $("#tPin").show('slow');
+                    $("#lPUK").show('slow');
+                    $("#tPUK").show('slow');
+    }
+                if(parseInt($("#SelectType").val()) == 5){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Modem GSM 2');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTel").show('slow');
+                    $("#tTel").show('slow');
+                    $("#lPin").show('slow');
+                    $("#tPin").show('slow');
+                    $("#lPUK").show('slow');
+                    $("#tPUK").show('slow');
+                    
+                }
+                if(parseInt($("#SelectType").val()) == 6){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Dysk przenośny');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lPojemnosc").show('slow');
+                    $("#tPojemnosc").show('slow');
+                    $("#lProcent").show('slow');
+                    $("#tProcent").show('slow');
+                  
+
+                }
+                if(parseInt($("#SelectType").val()) == 7){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Dysk przenośny 2');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lPojemnosc").show('slow');
+                    $("#tPojemnosc").show('slow');
+                    $("#lProcent").show('slow');
+                    $("#tProcent").show('slow');
+    }
+                if(parseInt($("#SelectType").val()) == 8){
+                 
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Drukarka');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTusz").show('slow');
+                    $("#tTusz").show('slow');
+                  
+
+    }
+                if(parseInt($("#SelectType").val()) == 9){
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Drukarka 2');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+                    $("#lTusz").show('slow');
+                    $("#tTusz").show('slow');
+    }
+                if(parseInt($("#SelectType").val()) == 10){
+                   //samochod
+                  
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Samochód');
+                   
+
+    }
+                if(parseInt($("#SelectType").val()) == 11){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 12){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 2');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+                    
+                   
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 13){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 3');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+
+
+                }
+                if(parseInt($("#SelectType").val()) == 14){
+                   
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 4');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+
+
+
+                }
+                if(parseInt($("#SelectType").val()) == 15){
+                    
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 5');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+
+
+    }
+                if(parseInt($("#SelectType").val()) == 16){
+                    hideall();
+                    $('#tRodzajSprzetu').val('');
+                    $('#tRodzajSprzetu').val('Inne 6');
+                    $("#lMarka").show('slow');
+                    $("#tMarka").show('slow');
+                    $("#lModel").show('slow');
+                    $("#tModel").show('slow');
+                    $("#lSerialNumber").show('slow');
+                    $("#tSerialNumber").show('slow');
+
+               
+                   
+
+
+
+    }
+            });
+            $("#SelectType").trigger("change");
+        });
+    
+    
+       function hideall(){
+        $("#lPin").hide('slow');
+        $("#tPin").hide('slow');
+        $("#lMarka").hide('slow');
+        $("#tMarka").hide('slow');
+        $("#lModel").hide('slow');
+        $("#tModel").hide('slow');
+        $("#lServiceTag").hide('slow');
+        $("#tServiceTag").hide('slow');
+        $("#lVin").hide('slow');
+        $("#tVin").hide('slow');
+        $("#lOpony").hide('slow');
+        $("#tOpony").hide('slow');
+        $("#lUbez").hide('slow');
+        $("#tUbez").hide('slow');
+        $("#lPrzebieg").hide('slow');
+        $("#tPrzebieg").hide('slow');
+        $("#lRejestracyjny").hide('slow');
+        $("#tRejestracyjny").hide('slow');
+        $("#lMoc").hide('slow');
+        $("#tMoc").hide('slow');
+        $("#lZwrot").hide('slow');
+        $("#tZwrot").hide('slow');
+        $("#lPrzyjecie").hide('slow');
+        $("#tPrzyjecie").hide('slow');
+        $("#lRodzaj").hide('slow');
+        $("#tRodzaj").hide('slow');
+        $("#lPojemnosc").hide('slow');
+        $("#tPojemnosc").hide('slow');
+        $("#lTusz").hide('slow');
+        $("#tTusz").hide('slow');
+        $("#lProcent").hide('slow');
+        $("#tProcent").hide('slow');
+        $("#lPUK").hide('slow');
+        $("#tPUK").hide('slow');
+        $("#lTel").hide('slow');
+        $("#tTel").hide('slow');
+        $("#lSerialNumber").hide('slow');
+        $("#tSerialNumber").hide('slow');
+     
+    }
+    
+  
+</script> 
+    }
+   

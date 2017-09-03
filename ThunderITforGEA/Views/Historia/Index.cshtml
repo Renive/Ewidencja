@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ThunderITforGEA.Models.Historia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Imię i nazwisko", "Index", "SprzetUzytkownikas", new { sortOrder = 1 }, null)
+        </th>
+        <th>
+            @Html.ActionLink("Pion", "Index", "SprzetUzytkownikas", new { sortOrder = 2 }, null)
+        </th>
+        <th>
+            @Html.ActionLink("Komórka organizacyjna", "Index", "SprzetUzytkownikas", new { sortOrder = 3 }, null)
+        </th>
+        <th>
+            @Html.ActionLink("Rodzaj sprzętu", "Index", "SprzetUzytkownikas", new { sortOrder = 4 }, null)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+     
+      
+     
+      
+     
+       
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.imie)
+            @Html.DisplayFor(modelItem => item.AspNetUsers.nazwisko)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.segment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUsers.segment2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rodzajSprzetu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+
+ 
+    
+   
+     
+    
+
+        <td>
+          
+            @Html.ActionLink("Więcej...", "Details", new { id=item.Id_h }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id_h })
+        </td>
+    </tr>
+}
+
+</table>

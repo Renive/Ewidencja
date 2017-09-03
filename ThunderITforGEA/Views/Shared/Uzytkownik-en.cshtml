@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ThunderITforGEA.Models.SprzetUzytkownika>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Equipment list</h2>
+
+<p>
+    @Html.ActionLink("New record", "Create_en", "SprzetUzytkownikas", new { User_Id = ViewBag.User_Id },null)
+    | @Html.ActionLink("Download as PDF", "zrobPDFUzytkownik", "PDF", null, null)
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            Equipment type
+        </th>
+        <th>
+           Brand
+        </th>
+      
+        <th>
+           Model
+        </th>
+      
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.zwracany == "tak")
+        {
+            <tr style="background-color:orangered;">
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.rodzajSprzetu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marka)
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+              
+
+                <td>
+              
+                        @Html.ActionLink("Edit", "Edit", "SprzetUzytkownikas", new { id = item.Id_ua }, null)
+                    |  @Html.ActionLink("Return", "Delete", "SprzetUzytkownikas", new { id = item.Id_ua }, null)
+                   
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.rodzajSprzetu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.marka)
+                </td>
+              
+                <td>
+                    @Html.DisplayFor(modelItem => item.model)
+                </td>
+             
+
+                <td>
+                 
+                        @Html.ActionLink("Edit", "Edit", "SprzetUzytkownikas", new { id = item.Id_ua }, null)
+                    
+                    |  @Html.ActionLink("Return", "Delete", "SprzetUzytkownikas", new { id = item.Id_ua }, null)
+                </td>
+            </tr>
+        }
+    }
+
+</table>

@@ -1,0 +1,102 @@
+﻿@model ThunderITforGEA.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Zarejestruj się";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Stwórz swoje konto. Loginem będzie Nazwisko.[2 pierwsze litery imienia].</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.imie, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.imie, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.nazwisko, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.nazwisko, new { @class = "form-control" })
+            </div>
+        </div>
+       
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        @Html.LabelFor(m => m.stanowisko, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.stanowisko, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.segment, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m=>m.segment, new List<SelectListItem> {
+                new SelectListItem{Text = "Board", Value = "1"},
+                new SelectListItem{Text = "Equipment Sales", Value = "2"},
+                new SelectListItem{Text = "Solution Sales", Value = "3"},
+                new SelectListItem{Text = "Service", Value = "4"},
+                new SelectListItem{Text = "Operational Country Marketing", Value = "5"},
+                new SelectListItem{Text = "Q-HSE/Lean Manager", Value = "6"},
+                new SelectListItem{Text = "Supply Chain", Value = "7"},
+
+            }, new { @class = "form-control" })
+        </div>
+        </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.segment2, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.segment2, new List<SelectListItem> {
+                new SelectListItem{Text = "Separation Sales", Value = "1"},
+                new SelectListItem{Text = "Food Processing and Packing Sales", Value = "2"},
+                new SelectListItem{Text = "Milking and Dairy Farming Sales", Value = "3"},
+                new SelectListItem{Text = "Flow Components, Compression and Homogenization Sales", Value = "4"},
+                new SelectListItem{Text = "Dairy Sales", Value = "5"},
+                new SelectListItem{Text = "Utilities Sales", Value = "6"},
+                new SelectListItem{Text = "Food Sales", Value = "7"},
+              new SelectListItem{Text = "Beverage sales", Value = "8"},
+                new SelectListItem{Text = "Chemicals Sales", Value = "9"},
+                  new SelectListItem{Text = "Project Execution", Value = "10"},
+                    new SelectListItem{Text = "Service Sales Equipment", Value = "11"},
+                      new SelectListItem{Text = "Service Branch Mazovia", Value = "12"},
+                        new SelectListItem{Text = "Service Support", Value = "13"},
+                          new SelectListItem{Text = "Service Sales Solutions", Value = "14"},
+                            new SelectListItem{Text = "Service Branch Silesia", Value = "15"},
+                              new SelectListItem{Text = "Service Branch Pomerania", Value = "16"},
+                                new SelectListItem{Text = "Local Procurement", Value = "17"},
+                                  new SelectListItem{Text = "Local Logistics & Warehouse", Value = "18"},
+            }, new { @class = "form-control" })
+        </div>
+    </div>
+                <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Rejestruj" />
+            </div>
+        </div>
+}
+
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
